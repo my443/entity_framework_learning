@@ -11,7 +11,11 @@ namespace Entity_Framework_Learning
             string csvFileName = @"C:\Projects\2024-02-11 T3010 Project\T3010_Data_Files\schedule_2_goods_2021.csv";
 
             ReadCSV readCSV = new ReadCSV();
+            DatabaseTable table = new DatabaseTable();
+
             DataTable dataTable =  readCSV.GetDataTabletFromCSVFile(csvFileName);
+            //Console.WriteLine(readCSV.Headers);
+            readCSV.printCSVHeaders();
 
             Console.WriteLine("Success!");
         }
