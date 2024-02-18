@@ -17,6 +17,12 @@ namespace Entity_Framework_Learning
             //Console.WriteLine(readCSV.Headers);
             readCSV.printCSVHeaders();
 
+            string query = table.createTable("something", readCSV.Headers);
+            Console.WriteLine(query);
+
+            //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
+            var pet = new { Age = 10, Name = "Fluffy" };
+
             Console.WriteLine("Success!");
         }
 
