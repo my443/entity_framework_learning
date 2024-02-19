@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Csv;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
 using System;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace Entity_Framework_Learning
@@ -39,6 +41,29 @@ namespace Entity_Framework_Learning
         {
             string truncateStatement = $"TRUNCATE TABLE {tableName};";
             return truncateStatement;
+        }
+
+        /// <summary>
+        /// Takes the CSV input and creates a table to insert the row. 
+        /// </summary>
+        /// <param name="tableName">The name of the table where the data will be inserted into.</param>
+        /// <param name="columnNames">The names of the columns</param>
+        /// <param name="csvLines">The lines from the csv import. </param>
+        /// <returns></returns>
+        public string insertQuery(string tableName, string[] columnNames, IEnumerable<ICsvLine> csvLines)
+        {
+            string query = "";
+
+            query = $"INSERT INTO [{tableName}] (\n";
+            foreach (string column in columnNames)
+            {
+                query = query + $"[{column}],\n";
+            }
+
+            query += ") VALUES\n";
+
+            return query;
+
         }
     }
 }
