@@ -123,6 +123,9 @@ namespace Entity_Framework_Learning
             Console.WriteLine(dynamicType.GetProperty("BN").GetValue(dynamicObject));
             Console.WriteLine(dynamicType.GetProperty("FPE").GetValue(dynamicObject));
 
+            string a = dynamicType.GetProperty("BN").GetValue(dynamicObject).ToString();
+            Console.WriteLine(a);
+
         }
     }
 }
