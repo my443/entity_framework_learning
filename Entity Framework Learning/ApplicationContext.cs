@@ -17,5 +17,10 @@ namespace Entity_Framework_Learning
             //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=MyDb;Trusted_Connection=True;");
             optionsBuilder.UseSqlite(@"Data Source=C:\Users\jvand\source\repos\users.db");
         }
+
+        internal object Set(Type type)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
