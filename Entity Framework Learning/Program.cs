@@ -20,9 +20,6 @@ namespace Entity_Framework_Learning
             string query = table.createTable("something", readCSV.Headers);
             Console.WriteLine(query);
 
-            //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
-            var pet = new { Age = 10, Name = "Fluffy" };
-
             Console.WriteLine("Success!");
         }
 
@@ -35,6 +32,12 @@ namespace Entity_Framework_Learning
 
             context.Users.Add(user);
             context.SaveChanges();
+        }
+
+        private static void anonymousObject()
+        {
+            //https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/object-and-collection-initializers
+            var pet = new { Age = 10, Name = "Fluffy" };
         }
     }
 }
